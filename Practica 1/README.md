@@ -73,3 +73,4 @@ Table branch {
 }
 
 ```
+<img width="1188" height="761" alt="imagen" src="https://github.com/user-attachments/assets/c615b650-60ba-4d50-a49c-f56403aa7c70" />
