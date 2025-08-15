@@ -35,41 +35,66 @@ Debido a el cambio que esta teniendo la organización, debido a el aumento en la
 
 ## SQL del DDL
 ``` SQL 
-Table sale {
+Table Venta_hecho {
   id integer [primary key]
-  created_at integer
-  branch integer   
-  product integer   
+  fecha_id int [foreign key]
+  sucursal_id varchar(10)   [foreign key]
+  cliente_id varchar(8)   [foreign key]
+  vendedor_id varchar(8)   [foreign key]
+  product_id varchar(8)   [foreign key]
+  unidades  integer
+  price  decimal (10,2)
 }
-Table buy {
-  id integer [primary key]
-  created_at integer
-  product integer  
-  provider integer 
+Table Compra_hecho{
+  id integer [primary key] 
+  fecha_id int [foreign key]
+  sucursal_id varchar(10)   [foreign key]
+  product_id varchar(8)  [foreign key]
+  provider_id varchar(8) [foreign key]
+  unidades integer
+  price decimal (10,2)
 }
-Table time {
-  id integer [primary key]
-  year integer
-  month integer
-  week_of_month integer
-  day_of_week_ int2
+Table Fecha_dim {
+  id int [primary key]
+  fecha date
+  year smallint
+  month tinyint
+  week_of_month tinyint
+  day_of_week tinyint
 }
 
-
-Table product {
-  id integer [primary key]
-  name varchar [not null]
-  sale_price float [not null]
-  buy_price float [not null]
+Table Product_dim {
+  id varchar(8) [primary key]
+  name varchar(32) [not null]
+  category_id integer [foreign key]
+  branch_id integer [foreign key]
 }
-Table provider {
+Table Category_dim {
   id integer [primary key]
-  name varchar [not null]
+  name varchar (16) [not null]
 }
-Table branch {
+Table Branch_dim {
   id integer [primary key]
-  name varchar
-  region varchar [not null]
+  name varchar (16) [not null]
+}
+Table Provider_dim {
+  id varchar (8) [primary key]
+  name varchar (24) [not null]
+}
+Table Client_dim {
+  id varchar(8) [primary key]
+  name varchar (24) [not null]
+  type varchar (24) 
+}
+Table Vendedor_dim {
+  id varchar(8) [primary key]
+  name varchar (24) [not null]
+}
+Table Sucursal_dim {
+  id varchar (10) [primary key]
+  name varchar(32)
+  region varchar(16) [not null]
+  department varchar(16) [not null]
 }
 
 ```
