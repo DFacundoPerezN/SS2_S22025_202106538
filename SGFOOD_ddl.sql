@@ -9,17 +9,17 @@ CREATE TABLE Fecha_dim (
 
 CREATE TABLE Category_dim (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(16) NOT NULL
+    name VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE Branch_dim (
     id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(16) NOT NULL
+    name VARCHAR(40) NOT NULL
 );
 
 CREATE TABLE Product_dim (
     id VARCHAR(8) PRIMARY KEY,
-    name VARCHAR(32) NOT NULL,
+    name VARCHAR(80) NOT NULL,
     category_id INT,
     branch_id INT,
     FOREIGN KEY (category_id) REFERENCES Category_dim(id),
@@ -28,25 +28,25 @@ CREATE TABLE Product_dim (
 
 CREATE TABLE Provider_dim (
     id VARCHAR(8) PRIMARY KEY,
-    name VARCHAR(24) NOT NULL
+    name VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE Client_dim (
     id VARCHAR(8) PRIMARY KEY,
-    name VARCHAR(24) NOT NULL,
-    type VARCHAR(24)
+    name VARCHAR(60) NOT NULL,
+    type VARCHAR(16)
 );
 
 CREATE TABLE Vendedor_dim (
     id VARCHAR(8) PRIMARY KEY,
-    name VARCHAR(24) NOT NULL
+    name VARCHAR(60) NOT NULL
 );
 
 CREATE TABLE Sucursal_dim (
     id VARCHAR(10) PRIMARY KEY,
-    name VARCHAR(32),
-    region VARCHAR(16) NOT NULL,
-    department VARCHAR(16) NOT NULL
+    name VARCHAR(60),
+    region VARCHAR(30) NOT NULL,
+    department VARCHAR(30) NOT NULL
 );
 
 CREATE TABLE Venta_hecho (
