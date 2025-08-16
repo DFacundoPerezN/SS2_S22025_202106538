@@ -1,5 +1,76 @@
 # Proceso ETL de la empresa SG-FOOD: 
 
+## Pasos ETL
+### Compras
+```mermaid
+flowchart TB
+  F["Flat File Source<br/>Compras CSV"]
+  DC1["Data Conversion<br/>Compras DC"]
+  DF["Derived Column<br/>Fecha Fix (corrige 'Z'->'2' & '-' -> '' en enteros)"]
+  DC2["Data Conversion<br/>Compras DC Fix"]
+  UA1["Union All<br/>Compras Union All"]
+  CS["Conditional Split<br/>Errores: negativos, nulos y espacios vacíos"]
+  FIX["Script <br/>Corrección de negativos, nulos y espacios vacíos"]
+  TRIM["Trimed Unicode strings"]
+  UA2["Union All<br/>Compras Union"]
+  MC["Multicast<br/>Compras Multicast"]
+  SORT["Sort<br/>Fecha Sort (distinct)"]
+  DCF["Derived Column<br/>Year/Month/MonthName/DayName"]
+  LK["Lookup<br/>DimFecha existente?"]
+  OLE["OLE DB Destination<br/>Fecha Insert"]
+  VAR["Varchar<br/>Convertir a vadena aceptable para la DB"]
+  MC1["Multicast<br/>Compras Multicast 1"]
+  SORT2["Sort<br/>Sort (key)"]
+  DCF2["Derived Column<br/>Year/Month/MonthName/DayName"]
+  LK2["Lookup<br/>Otros atributos existente?"]
+  OLE2["OLE DB Destination<br/> Insert"]
+
+  F --> DC1
+  DC1 -- Error Output --> DF --> DC2 --> UA1
+  DC1 --> UA1
+  UA1 --> TRIM
+  TRIM --> CS
+  CS -- Registros con error --> FIX --> UA2
+  CS -- Registros sin error --> UA2
+  UA2 --> MC
+  MC --> SORT --> DCF --> LK
+  LK -- No Match --> OLE
+  MC --> VAR 
+  VAR --> MC1--> SORT2 --> DCF2 --> LK2 --> OLE2
+```
+### Ventas
+```mermaid
+flowchart TB
+  F["Flat File Source<br/>Ventas CSV"]
+  DC1["Data Conversion<br/>Ventas DC"]
+  DF["Derived Column<br/>Fecha Fix (corrige 'Z'->'2' & '-' -> '' en enteros)"]
+  DC2["Data Conversion<br/>Ventas DC Fix"]
+  UA1["Union All<br/>Ventas Union "]
+  TRIM["Trimed Unicode strings"]
+  FIX["Script <br/>Corrección de negativos, nulos y espacios vacíos"]
+  MC["Multicast<br/>Ventas Multicast"]
+  SORT["Sort<br/>Fecha Sort (distinct)"]
+  DCF["Derived Column<br/>Year/Month/MonthName/DayName"]
+  LK["Lookup<br/>DimFecha existente?"]
+  OLE["OLE DB Destination<br/>Fecha Insert"]
+  VAR["Varchar<br/>Convertir a vadena aceptable para la DB"]
+  MC1["Multicast<br/>Compras Multicast 1"]
+  SORT2["Sort<br/>Sort (key)"]
+  DCF2["Derived Column<br/>Year/Month/MonthName/DayName"]
+  LK2["Lookup<br/>Otros atributos existente?"]
+  OLE2["OLE DB Destination<br/> Insert"]
+
+  F --> DC1
+  DC1 -- Error Output --> DF --> DC2 --> UA1
+  DC1 --> UA1
+  UA1 --> TRIM
+  TRIM --> FIX --> MC
+  MC --> SORT --> DCF --> LK
+  LK -- No Match --> OLE
+  MC --> VAR 
+  VAR --> MC1 --> SORT2 --> DCF2 --> LK2 --> OLE2
+```
+
 ## ¿Por qué se eligio el modelo constelación?
 Debido a el cambio que esta teniendo la organización, debido a el aumento en la complejidad de sus datos a analizar. Este modelo es adaptable a trabajar con normalización o con desnormalización, entonces gracias al cambio que puede tener el negocio es bueno usar un modelo adaptable como el de constelación de hechos.
 
