@@ -78,3 +78,29 @@ CREATE TABLE Compra_hecho (
     FOREIGN KEY (product_id) REFERENCES Product_dim(id),
     FOREIGN KEY (provider_id) REFERENCES Provider_dim(id)
 );
+
+CREATE TABLE Pivot_Product (
+    id VARCHAR(8) PRIMARY KEY,
+    name VARCHAR(80) ,
+    category  VARCHAR(40),
+    branch  VARCHAR(40)
+);
+
+CREATE TABLE Pivot_Venta (
+    fecha date,    
+    sucursal_id VARCHAR(10),
+    cliente_id VARCHAR(8),
+    vendedor_id VARCHAR(8),
+    product_id VARCHAR(8),
+    unidades INT,
+    price DECIMAL(10,2)
+);
+
+CREATE TABLE Pivot_Compras (
+    fecha date,    
+    sucursal_id VARCHAR(10),
+    product_id VARCHAR(8),
+    provider_id VARCHAR(8),
+    unidades INT,
+    price DECIMAL(10,2)
+);
