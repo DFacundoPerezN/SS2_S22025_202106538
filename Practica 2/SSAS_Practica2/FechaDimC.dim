@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3039" scrolltop="-3345" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8043" y="9716" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="3" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-3039" scrolltop="-3345" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="8043" y="10605" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -19,7 +19,7 @@
           <layoutmanager>
             <ddsxmlobj />
           </layoutmanager>
-          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Fecha_dim" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3175" height="3027" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge" tooltip="Fecha_dim" left="-509" top="-487" logicalid="2" controlid="1" masterid="0" hint1="0" hint2="0" width="3175" height="3027" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
             <control>
               <ddsxmlobjectstreaminitwrapper binary="000e0000670c0000d30b0000" />
             </control>
@@ -55,11 +55,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
-      <Value>20</Value>
+      <Value>-509</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
-      <Value>0</Value>
+      <Value>-487</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
@@ -73,7 +73,6 @@
             <Shape Id="Id" Expanded="true">
               <Attributes>
                 <Attribute Id="Id" />
-                <Attribute Id="Week Of Month" />
               </Attributes>
               <Position x="20" y="20" />
             </Shape>
@@ -134,10 +133,6 @@
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="67af5e42-79a9-4d8b-80c6-107810e9eb25">
-          <AttributeID>Week Of Month</AttributeID>
-          <Name>Week Of Month</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="407767d0-b44b-475d-a041-edf0e5772b9d">
           <AttributeID>Fecha</AttributeID>
           <Name>Fecha</Name>
@@ -172,16 +167,9 @@
       <ID>Year</ID>
       <Name>Year</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="9eb24649-dd0c-4935-a5be-3cef4967d576">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="da53743b-d9db-4050-a060-8114393c5e8d">
-            <TableID>dbo_Fecha_dim</TableID>
-            <ColumnID>id</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="909d3622-c903-45db-929f-44fe5b3136d4">
+        <KeyColumn dwd:design-time-name="d9cf02f8-edd1-4ddb-a358-747256d4758c">
           <DataType>SmallInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="de3fb65d-7dca-4ff0-abeb-f2de6b2fc22c">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="c230974f-5810-449d-be94-fc3cf36638db">
             <TableID>dbo_Fecha_dim</TableID>
             <ColumnID>year</ColumnID>
           </Source>
@@ -208,25 +196,18 @@
       <ID>Month</ID>
       <Name>Month</Name>
       <KeyColumns>
-        <KeyColumn dwd:design-time-name="578feeae-1512-4dbd-add6-2a3e4d4bc5b6">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="2f9df255-c838-4d7e-9210-e031862fe4a6">
-            <TableID>dbo_Fecha_dim</TableID>
-            <ColumnID>id</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="38656990-5f74-4341-9f4d-90887145d88b">
-          <DataType>UnsignedTinyInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="23eacedf-5ace-4020-b99f-7728fa6ae27a">
-            <TableID>dbo_Fecha_dim</TableID>
-            <ColumnID>month</ColumnID>
-          </Source>
-        </KeyColumn>
-        <KeyColumn dwd:design-time-name="7932260f-22a6-4c81-bd96-5e75201296a4">
+        <KeyColumn dwd:design-time-name="bc1800ea-02b6-47f3-b0a7-85d4a489af61">
           <DataType>SmallInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="5c22c700-4a9c-473a-a749-f6a83a201f5f">
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="32da318d-ff9d-492b-a335-e88d69a0440b">
             <TableID>dbo_Fecha_dim</TableID>
             <ColumnID>year</ColumnID>
+          </Source>
+        </KeyColumn>
+        <KeyColumn dwd:design-time-name="086250e9-d576-4fc1-bbe1-0f530f5915b2">
+          <DataType>UnsignedTinyInt</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3868d1e2-9219-44b6-9289-5f6ab68dd207">
+            <TableID>dbo_Fecha_dim</TableID>
+            <ColumnID>month</ColumnID>
           </Source>
         </KeyColumn>
       </KeyColumns>
@@ -250,21 +231,6 @@
           <ColumnID>month</ColumnID>
         </Source>
       </ValueColumn>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
-    <Attribute dwd:design-time-name="d8f1a7f3-c5da-45e0-9952-bfd5d80b0fb6">
-      <ID>Week Of Month</ID>
-      <Name>Week Of Month</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="877ff8b0-449f-4714-a11c-a0fccb70aa08">
-          <DataType>UnsignedTinyInt</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="873f151f-2e17-4d68-bd9d-1bc4d7c0dfc9">
-            <TableID>dbo_Fecha_dim</TableID>
-            <ColumnID>week_of_month</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>

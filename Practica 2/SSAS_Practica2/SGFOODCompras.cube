@@ -8,7 +8,7 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
       <Value>
         <dds xmlns="">
-          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-9632" scrolltop="-2205" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="17886" y="9716" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="28" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-5180" scrolltop="-282" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="17886" y="10605" backcolor="2039583" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="1" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
             <font>
               <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
             </font>
@@ -223,11 +223,11 @@
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
-      <Value>-9632</Value>
+      <Value>-5180</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
-      <Value>-2205</Value>
+      <Value>-282</Value>
     </Annotation>
     <Annotation>
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
@@ -262,9 +262,6 @@
         <Attribute dwd:design-time-name="c69326eb-f37f-4945-aca1-c597ee05e4b8">
           <AttributeID>Month</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="ffc49b37-4954-46d9-8b49-0df2b9cbd0fc">
-          <AttributeID>Week Of Month</AttributeID>
-        </Attribute>
         <Attribute dwd:design-time-name="90408974-9983-4b6d-b6b0-b6380dfb4c1f">
           <AttributeID>Day Of Week</AttributeID>
         </Attribute>
@@ -283,12 +280,6 @@
         <Attribute dwd:design-time-name="a14d7894-46bf-410e-984c-9c1cff8dcfdb">
           <AttributeID>Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="561eb88e-e719-4d07-93fd-18cbea73caba">
-          <AttributeID>Category Dim - Id</AttributeID>
-        </Attribute>
-        <Attribute dwd:design-time-name="4bdd545a-1bb1-4739-bb33-b473c6247269">
-          <AttributeID>Branch Dim - Id</AttributeID>
-        </Attribute>
         <Attribute dwd:design-time-name="cdb26304-c4bb-4aa4-ab55-93fd2c0f047d">
           <AttributeID>Name</AttributeID>
         </Attribute>
@@ -299,6 +290,11 @@
           <AttributeID>Name 2</AttributeID>
         </Attribute>
       </Attributes>
+      <Hierarchies>
+        <Hierarchy dwd:design-time-name="1feb846f-d5ff-40a6-9b32-1950599fab37">
+          <HierarchyID>Jerarquía</HierarchyID>
+        </Hierarchy>
+      </Hierarchies>
     </Dimension>
     <Dimension dwd:design-time-name="c0fc8f16-b02e-4af7-871b-cc9373582bec">
       <ID>ProviderDim</ID>
@@ -476,4 +472,36 @@
   <Source dwd:design-time-name="3830f919-7d54-4db9-9667-4aab2bd4467e">
     <DataSourceViewID>SG-FOOD P2</DataSourceViewID>
   </Source>
+  <MdxScripts>
+    <MdxScript dwd:design-time-name="339faec6-4c9c-4b0e-9f28-6e003069f73b">
+      <ID>MdxScript</ID>
+      <Name>MdxScript</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <Commands>
+        <Command>
+          <Text>/*
+El comando CALCULATE controla la agregación de celdas hoja en el cubo.
+Si se elimina o modifica el comando CALCULATE, se ven afectados los datos del cubo.
+Solo debe editar este comando si especifica manualmente cómo se agrega el cubo.
+*/
+CALCULATE;  
+CREATE MEMBER CURRENTCUBE.[Measures].CostoPromedioCompras
+ AS IIF([Measures].[Unidades Compradas] = 0, NULL, 
+[Measures].[TotalCosto] / [Measures].[Unidades Compradas]), 
+FORMAT_STRING = "Currency", 
+VISIBLE = 1  ; </Text>
+        </Command>
+      </Commands>
+    </MdxScript>
+  </MdxScripts>
+  <Kpis>
+    <Kpi dwd:design-time-name="6541a2e4-586c-48e7-8bcb-22a8aed41955">
+      <ID>KPI</ID>
+      <Name>KPI</Name>
+      <AssociatedMeasureGroupID>Compra Hecho</AssociatedMeasureGroupID>
+      <TrendGraphic>Standard Arrow</TrendGraphic>
+      <StatusGraphic>Gauge - Ascending</StatusGraphic>
+    </Kpi>
+  </Kpis>
 </Cube>

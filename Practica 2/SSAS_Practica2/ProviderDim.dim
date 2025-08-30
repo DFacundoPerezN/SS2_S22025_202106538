@@ -116,9 +116,9 @@
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="7841549c-bf4e-49c3-86c8-e7f7eac03017">
+        <AttributeRelationship dwd:design-time-name="bf844541-7788-4278-9f2f-641dafa79a57">
           <AttributeID>Name</AttributeID>
-          <Name>Name_</Name>
+          <Name>NameProvider</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
@@ -127,7 +127,7 @@
     </Attribute>
     <Attribute dwd:design-time-name="a8b4e554-e2a9-4e13-a6a6-f2dfa76e359e">
       <ID>Name</ID>
-      <Name>Name0</Name>
+      <Name>NameProvider</Name>
       <KeyColumns>
         <KeyColumn dwd:design-time-name="8c710e7e-a2a8-4c5b-8611-91e69452da2a">
           <DataType>WChar</DataType>
@@ -147,9 +147,9 @@
       <ID>Jerarquía</ID>
       <Name>Jerarquía</Name>
       <Levels>
-        <Level dwd:design-time-name="58d2a5c2-0dfc-4e94-9f09-759eac642448">
-          <ID>Name0</ID>
-          <Name>Name0</Name>
+        <Level dwd:design-time-name="1bf4ecf8-fe12-4bde-bde3-5e4251b6b2aa">
+          <ID>NameProvider</ID>
+          <Name>NameProvider</Name>
           <SourceAttributeID>Name</SourceAttributeID>
         </Level>
       </Levels>
